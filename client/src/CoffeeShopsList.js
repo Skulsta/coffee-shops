@@ -102,7 +102,7 @@ class CoffeeShopsList extends Component {
             />
           ))}
           {!coffeeShops || coffeeShops.length === 0 ? (
-            <p>No coffee shops!</p>
+            <p>No character!</p>
           ) : null}
         </div>
       </div>

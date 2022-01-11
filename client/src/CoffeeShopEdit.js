@@ -14,11 +14,9 @@ import { withRouter } from "react-router-dom";
 class CoffeeShopEdit extends Component {
   emptyItem = {
     name: "",
+    livesIn: "",
     address: "",
-    phone: "",
-    priceOfCoffee: "",
-    powerAccessible: "",
-    internetReliability: "",
+    bestGifts: [],
   };
 
   constructor(props) {
@@ -46,7 +44,8 @@ class CoffeeShopEdit extends Component {
     const value = target.value;
     const name = target.name;
     let item = { ...this.state.item };
-    item[name] = value;
+    item[name] = name === "bestGifts" ? value.split(",") : value;
+    console.log(item);
     this.setState({ item });
   }
 
@@ -72,7 +71,7 @@ class CoffeeShopEdit extends Component {
 
   render() {
     const { item, errorMessage, isCreate } = this.state;
-    const title = <h2>{isCreate ? "Add Coffee Shop" : "Edit Coffee Shop"}</h2>;
+    const title = <h2>{isCreate ? "Add Character" : "Edit Character"}</h2>;
 
     return (
       <div>
@@ -94,14 +93,14 @@ class CoffeeShopEdit extends Component {
                 />
               </FormGroup>
               <FormGroup className="col-md-4 mb-3">
-                <Label for="phone">Phone</Label>
+                <Label for="livesIn">Lives in</Label>
                 <Input
                   type="text"
-                  name="phone"
-                  id="phone"
-                  value={item.phone || ""}
+                  name="livesIn"
+                  id="livesIn"
+                  value={item.livesIn || ""}
                   onChange={this.handleChange}
-                  autoComplete="phone"
+                  autoComplete="livesIn"
                 />
               </FormGroup>
             </div>
@@ -118,44 +117,14 @@ class CoffeeShopEdit extends Component {
             </FormGroup>
             <div className="row">
               <FormGroup className="col-md-4 mb-3">
-                <Label for="priceOfCoffee">Price of Coffee</Label>
+                <Label for="bestGifts">Best gifts</Label>
                 <Input
                   type="text"
-                  name="priceOfCoffee"
-                  id="priceOfCoffee"
-                  value={item.priceOfCoffee || ""}
+                  name="bestGifts"
+                  id="bestGifts"
+                  value={item.bestGifts || ""}
                   onChange={this.handleChange}
                 />
-              </FormGroup>
-              <FormGroup className="col-md-4 mb-3">
-                <Label for="powerAccessible">Power Accessible?</Label>
-                <Input
-                  type="select"
-                  name="powerAccessible"
-                  id="powerAccessible"
-                  value={item.powerAccessible === "true" ? "true" : "false"}
-                  onChange={this.handleChange}
-                >
-                  <option value="true">Yes</option>
-                  <option value="false">No</option>
-                </Input>
-              </FormGroup>
-              <FormGroup className="col-md-4 mb-3">
-                <Label for="internetReliability">Internet Reliability</Label>
-                <Input
-                  type="select"
-                  name="internetReliability"
-                  id="internetReliability"
-                  value={item.internetReliability || "-"}
-                  onChange={this.handleChange}
-                >
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option value="-">-</option>
-                </Input>
               </FormGroup>
             </div>
             <FormGroup>
