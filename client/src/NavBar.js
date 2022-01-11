@@ -25,18 +25,18 @@ class NavBar extends Component {
 
   render() {
     return (
-      <Navbar color="light" light expand="md">
+      <Navbar dark expand="md">
         <NavbarBrand tag={Link} to="/">
-          Home
+          Pelican Database
         </NavbarBrand>
-        <NavbarToggler onClick={this.toggle} />
-        <Collapse isOpen={this.state.isOpen} navbar>
-          <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink href="/">Home</NavLink>
-            </NavItem>
-          </Nav>
-        </Collapse>
+        {/*<NavbarToggler onClick={this.toggle} />*/}
+        {/*<Collapse isOpen={this.state.isOpen} navbar>*/}
+        {/*  <Nav className="ml-auto" navbar>*/}
+        {/*    <NavItem>*/}
+        {/*      <NavLink href="/">Just an empty list</NavLink>*/}
+        {/*    </NavItem>*/}
+        {/*  </Nav>*/}
+        {/*</Collapse>*/}
       </Navbar>
     );
   }

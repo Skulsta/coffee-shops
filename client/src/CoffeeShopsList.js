@@ -7,14 +7,13 @@ const CoffeeShop = (props) => (
     <h3>{props.name}</h3>
     <div className="coffeeshop-body">
       <div className="subtitle-container">
-        <div>Cost: ${props.priceOfCoffee} / cup</div>
-        <div>Internet Reliability: {props.internetReliability} / 5 </div>
-        <div>
-          {props.powerAccessible ? "Power Accessible" : "Power NOT Accessible"}{" "}
-        </div>
+        <div>Lives in: {props.livesIn}</div>
+        <div>Address: {props.address}</div>
       </div>
-      <div>{props.address}</div>
-      <div>{props.phone}</div>
+      <div>Best gifts:</div>
+      {props.bestGifts.map((gift) => (
+        <div key={gift}>{gift}</div>
+      ))}
     </div>
     <div className="coffeeshop-footer">
       <Button color="secondary" tag={Link} to={"/coffee-shops/" + props.id}>
@@ -82,7 +81,7 @@ class CoffeeShopsList extends Component {
       <div>
         {this.props.navbar}
         <div className="d-flex flex-row justify-content-between p-3">
-          <h3 className="coffee-shops-title">Coffee Shops</h3>
+          <h3 className="coffee-shops-title">People of Pelican Area</h3>
           <Button color="success" tag={Link} to="/coffee-shops/new">
             Add New
           </Button>

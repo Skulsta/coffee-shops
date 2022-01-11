@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry
 open class RestConfiguration : RepositoryRestConfigurer {
     override fun configureRepositoryRestConfiguration(config: RepositoryRestConfiguration?, cors: CorsRegistry?) {
         super.configureRepositoryRestConfiguration(config, cors)
-        config?.exposeIdsFor(CoffeeShopModel::class.java)
+        config?.exposeIdsFor(CharacterModel::class.java)
         config?.setBasePath("/api")
     }
 }

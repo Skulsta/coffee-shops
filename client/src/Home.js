@@ -12,7 +12,7 @@ class Home extends Component {
           <div>
             <Button color="secondary">
               <Link className="app-link" to="/coffee-shops">
-                Manage Coffee Shops
+                People
               </Link>
             </Button>
           </div>
